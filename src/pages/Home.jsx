@@ -1,25 +1,35 @@
-import Hero from '../components/Hero'
+import { Suspense, lazy } from 'react'
 import LeadCapture from '../components/LeadCapture'
 import Courses from '../components/Courses'
 import OnlineClasses from '../components/OnlineClasses'
-import Stats from '../components/Stats'
 import WhyChooseUs from '../components/WhyChooseUs'
 import Trainers from '../components/Trainers'
-import Testimonials from '../components/Testimonials'
-import DemoBooking from '../components/DemoBooking'
+
+const Hero = lazy(() => import('../components/Hero'))
+const Stats = lazy(() => import('../components/Stats'))
+const Testimonials = lazy(() => import('../components/Testimonials'))
+const DemoBooking = lazy(() => import('../components/DemoBooking'))
 
 export default function Home() {
   return (
     <>
-      <Hero />
+      <Suspense fallback={<div className="container-custom py-24">Loading...</div>}>
+        <Hero />
+      </Suspense>
       <LeadCapture />
       <Courses showTitle={false} />
       <OnlineClasses />
-      <Stats />
+      <Suspense fallback={<div className="container-custom py-16">Loading...</div>}>
+        <Stats />
+      </Suspense>
       <WhyChooseUs />
       <Trainers />
-      <Testimonials />
-      <DemoBooking />
+      <Suspense fallback={<div className="container-custom py-16">Loading...</div>}>
+        <Testimonials />
+      </Suspense>
+      <Suspense fallback={<div className="container-custom py-16">Loading...</div>}>
+        <DemoBooking />
+      </Suspense>
     </>
   )
 }
