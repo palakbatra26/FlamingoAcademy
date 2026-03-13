@@ -1,0 +1,201 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #0f172a;
+  --navy-light: #1e293b;
+  --blue: #8B5CF6;
+  --blue-light: #a78bfa;
+  --pink: #FF4D8D;
+  --pink-light: #ff7aaa;
+  --glass: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--navy);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--navy);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--pink);
+  border-radius: 3px;
+}
+
+/* Background Mesh */
+.bg-mesh {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 20%, rgba(37, 99, 235, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 90% 80%, rgba(255, 79, 135, 0.14) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 50% 50%, rgba(15, 23, 42, 0.9) 0%, transparent 100%);
+}
+
+/* Noise Overlay */
+.noise {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(10, 15, 30, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 77, 141, 0.2);
+}
+
+.glass-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, #ff4f87 0%, #2563eb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow Effects */
+.glow-pink {
+  box-shadow: 0 0 30px rgba(255, 79, 135, 0.4);
+}
+
+.glow-blue {
+  box-shadow: 0 0 30px rgba(37, 99, 235, 0.4);
+}
+
+.glow-hover:hover {
+  box-shadow: 0 0 40px rgba(255, 79, 135, 0.5);
+  transform: translateY(-5px);
+}
+
+/* Button Styles */
+.btn-primary {
+  background: linear-gradient(135deg, #ff4f87 0%, #ff7aaa 100%);
+  color: white;
+  padding: 14px 32px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 40px rgba(255, 79, 135, 0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: white;
+  padding: 14px 32px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #ff4f87;
+}
+
+/* Animation Classes */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 79, 135, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(255, 79, 135, 0.6); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Section Padding */
+.section-padding {
+  padding: 100px 0;
+}
+
+/* Container */
+.container-custom {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Input Styles */
+input, textarea, select {
+  font-family: 'Inter', sans-serif;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  background: rgba(15, 23, 42, 0.9);
+  backdrop-filter: blur(8px);
+}
+
+/* Star Rating */
+.star-filled {
+  color: #fbbf24;
+}
+
+.star-empty {
+  color: rgba(255, 255, 255, 0.2);
+}
